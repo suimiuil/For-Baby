@@ -12,7 +12,7 @@ const flashImage = document.getElementById('flashImage');
 // Question 1: Date selector
 let dateSelectionTimeout = null;
 
-dateInput.addEventListener('change', function() {
+dateInput.addEventListener('blur', function() {
     // Clear any existing timeout
     if (dateSelectionTimeout) {
         clearTimeout(dateSelectionTimeout);
