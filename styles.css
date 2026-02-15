@@ -52,25 +52,28 @@ body::before {
     50% { opacity: 0.5; transform: scale(1.1); }
 }
 
+/* Container - Mobile First */
 .container {
     text-align: center;
-    padding: 3rem;
+    padding: 2rem 1rem;
     position: relative;
     z-index: 10;
-    max-width: 600px;
-    width: 90%;
+    width: 100%;
+    max-width: 100%;
 }
 
+/* Question - Mobile First */
 .question {
     font-family: 'Lexend', sans-serif;
-    font-size: 2.8rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--charcoal);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.4;
     opacity: 0;
     animation: fadeInDown 1.2s ease-out forwards;
     text-shadow: 0 2px 20px rgba(255, 182, 193, 0.3);
+    padding: 0 0.5rem;
 }
 
 @keyframes fadeInDown {
@@ -84,11 +87,13 @@ body::before {
     }
 }
 
+/* Answer Container - Mobile First */
 .answer-container {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s ease-out 2s forwards;
     pointer-events: none;
+    padding: 0 0.5rem;
 }
 
 .answer-container.active {
@@ -110,12 +115,12 @@ body::before {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
 }
 
+/* Disabled States */
 .date-input:disabled,
 .text-input:disabled {
     opacity: 0.6;
@@ -130,10 +135,11 @@ body::before {
     pointer-events: none;
 }
 
+/* Date Input - Mobile First */
 .date-input {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 1.5rem;
-    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
     border: 3px solid var(--rose-bloom);
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.9);
@@ -142,26 +148,31 @@ body::before {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
+    width: 100%;
+    max-width: 300px;
 }
 
 .date-input:focus {
     outline: none;
     border-color: var(--deep-rose);
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 0 12px 48px rgba(255, 107, 157, 0.25);
 }
 
+/* Options Grid - Mobile First (Single Column) */
 .options {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     margin-top: 1rem;
+    width: 100%;
 }
 
+/* Option Buttons - Mobile First */
 .option-btn {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 1.3rem;
-    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+    padding: 1rem 1.2rem;
     border: 3px solid var(--rose-bloom);
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.9);
@@ -171,25 +182,27 @@ body::before {
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
     font-weight: 500;
+    width: 100%;
 }
 
-.option-btn:hover {
-    transform: translateY(-5px);
+.option-btn:active {
+    transform: scale(0.98);
     border-color: var(--deep-rose);
     box-shadow: 0 12px 48px rgba(255, 107, 157, 0.3);
     background: rgba(255, 255, 255, 1);
 }
 
+/* Text Input - Mobile First */
 .text-input {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 1.5rem;
-    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
     border: 3px solid var(--rose-bloom);
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.9);
     color: var(--charcoal);
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     text-align: center;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
@@ -199,15 +212,16 @@ body::before {
 .text-input:focus {
     outline: none;
     border-color: var(--deep-rose);
-    transform: scale(1.05);
+    transform: scale(1.02);
     box-shadow: 0 12px 48px rgba(255, 107, 157, 0.25);
 }
 
+/* Submit Button - Mobile First */
 .submit-btn {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 1.3rem;
-    padding: 1rem 3rem;
-    margin-top: 1.5rem;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    margin-top: 1rem;
     border: 3px solid var(--deep-rose);
     border-radius: 15px;
     background: linear-gradient(135deg, var(--deep-rose), var(--velvet-pink));
@@ -218,25 +232,27 @@ body::before {
     font-weight: 600;
 }
 
-.submit-btn:hover {
-    transform: translateY(-3px);
+.submit-btn:active {
+    transform: scale(0.98);
     box-shadow: 0 12px 48px rgba(255, 107, 157, 0.5);
 }
 
+/* Toast - Mobile First */
 .toast {
     position: fixed;
-    top: 3rem;
+    top: 2rem;
     left: 50%;
     transform: translateX(-50%) translateY(-100px);
-    padding: 1.2rem 2.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 15px;
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 600;
     opacity: 0;
     transition: all 0.5s ease;
     z-index: 1000;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
 }
 
 .toast.show {
@@ -254,6 +270,7 @@ body::before {
     color: var(--charcoal);
 }
 
+/* Correct Flash */
 .correct-flash {
     position: fixed;
     top: 0;
@@ -266,9 +283,10 @@ body::before {
     z-index: 999;
 }
 
+/* Envelope Container - Mobile First */
 .envelope-container {
     position: fixed;
-    bottom: -400px;
+    bottom: -300px;
     left: 50%;
     transform: translateX(-50%) rotate(30deg);
     cursor: pointer;
@@ -277,11 +295,11 @@ body::before {
 }
 
 .envelope-container.slide-up {
-    bottom: -100px;
+    bottom: -80px;
 }
 
 .envelope-container.slide-down {
-    bottom: -400px;
+    bottom: -300px;
     transform: translateX(-50%) rotate(30deg);
 }
 
@@ -291,9 +309,10 @@ body::before {
     transform: translate(-50%, 50%) rotate(0deg);
 }
 
+/* Envelope - Mobile First */
 .envelope {
-    width: 320px;
-    height: 200px;
+    width: 200px;
+    height: 125px;
     position: relative;
 }
 
@@ -323,24 +342,26 @@ body::before {
     transform: rotateX(180deg);
 }
 
+/* Letter - Mobile First */
 .letter {
     position: fixed;
-    width: 95%;
-    max-width: 1200px;
-    max-height: 90vh;
+    width: 96%;
+    max-width: 500px;
+    max-height: 55vh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fffef9;
     border-radius: 5px;
-    padding: 3rem 3rem;
+    padding: 1.2rem 1rem;
     box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
     opacity: 0;
     visibility: hidden;
     z-index: 10001;
+    overflow-y: auto;
     pointer-events: none;
     border: 2px solid rgba(255, 194, 209, 0.3);
-    animation: fadeIn 1.2s ease-in forwards
+    animation: fadeIn 1.2s ease-in forwards;
 }
 
 .envelope-container.opening .letter {
@@ -349,22 +370,24 @@ body::before {
     pointer-events: auto;
 }
 
+/* Letter Content - Mobile First */
 .letter-content {
     font-family: 'Atkinson Hyperlegible', sans-serif;
-    font-size: 1.3rem;
-    line-height: 2;
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: #2a2a2a;
     text-align: left;
 }
 
 .signature {
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-align: right;
-    font-size: 1.4rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #2a2a2a;
 }
 
+/* Flash Image */
 .flash-image {
     position: fixed;
     top: 50%;
@@ -382,6 +405,7 @@ body::before {
     opacity: 1;
 }
 
+/* Fade Out Animation */
 .fade-out {
     animation: fadeOut 0.8s ease forwards;
 }
@@ -393,10 +417,10 @@ body::before {
     }
 }
 
-/* Hearts floating animation */
+/* Hearts Floating Animation */
 .heart {
     position: fixed;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--rose-bloom);
     opacity: 0;
     pointer-events: none;
@@ -420,81 +444,172 @@ body::before {
     }
 }
 
-@media (max-width: 768px) {
+/* ===================================
+   TABLET BREAKPOINT (min-width: 600px)
+   =================================== */
+@media (min-width: 600px) {
+    .container {
+        padding: 2.5rem 2rem;
+        max-width: 600px;
+    }
+
     .question {
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        padding: 0;
     }
+
+    .answer-container {
+        padding: 0;
+    }
+
+    .options {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+    }
+
     .option-btn {
         font-size: 1.1rem;
-        padding: 1rem;
+        padding: 1.2rem 1.5rem;
     }
+
+    .option-btn:hover {
+        transform: translateY(-5px);
+        border-color: var(--deep-rose);
+        box-shadow: 0 12px 48px rgba(255, 107, 157, 0.3);
+        background: rgba(255, 255, 255, 1);
+    }
+
+    .date-input,
+    .text-input {
+        font-size: 1.2rem;
+        padding: 1rem 1.5rem;
+        max-width: 400px;
+    }
+
+    .date-input:focus,
+    .text-input:focus {
+        transform: scale(1.05);
+    }
+
+    .submit-btn {
+        font-size: 1.1rem;
+        padding: 1rem 2.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 48px rgba(255, 107, 157, 0.5);
+    }
+
     .envelope {
         width: 260px;
         height: 160px;
     }
+
+    .envelope-container {
+        bottom: -350px;
+    }
+
+    .envelope-container.slide-up {
+        bottom: -100px;
+    }
+
+    .envelope-container.slide-down {
+        bottom: -350px;
+    }
+
     .letter {
-        width: 98%;
-        max-width: none;
-        min-width: auto;
-        padding: 1.5rem 1.2rem;
-        max-height: 60vh;
-        overflow-y: auto;
+        width: 95%;
+        max-width: 650px;
+        max-height: 65vh;
+        padding: 2rem 1.5rem;
     }
+
     .letter-content {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
-    .signature {
         font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .signature {
+        font-size: 1.1rem;
         margin-top: 1.5rem;
     }
+
+    .toast {
+        font-size: 1.1rem;
+        padding: 1.2rem 2rem;
+        top: 2.5rem;
+    }
+
+    .heart {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===================================
+   DESKTOP BREAKPOINT (min-width: 1024px)
+   =================================== */
+@media (min-width: 1024px) {
+    .container {
+        padding: 3rem;
+        max-width: 600px;
+    }
+
+    .question {
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+    }
+
+    .option-btn {
+        font-size: 1.3rem;
+    }
+
     .date-input,
     .text-input {
-        font-size: 1.2rem;
-        padding: 0.8rem 1rem;
+        font-size: 1.5rem;
     }
+
     .submit-btn {
-        font-size: 1.1rem;
-        padding: 0.8rem 2rem;
+        font-size: 1.3rem;
+        padding: 1rem 3rem;
     }
-}
 
-@media (min-width: 1024px) {
-    .letter {
-        min-width: 900px;
-        overflow-y: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .question {
-        font-size: 1.6rem;
-        margin-bottom: 1.5rem;
-    }
-    .options {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .option-btn {
-        font-size: 1rem;
-    }
     .envelope {
-        width: 220px;
-        height: 135px;
+        width: 320px;
+        height: 200px;
     }
+
+    .envelope-container {
+        bottom: -400px;
+    }
+
+    .envelope-container.slide-down {
+        bottom: -400px;
+    }
+
     .letter {
-        width: 98%;
-        padding: 1.2rem 1rem;
-        max-height: 55vh;
-        overflow-y: auto;
+        width: 95%;
+        max-width: 1200px;
+        min-width: 900px;
+        max-height: 90vh;
+        padding: 3rem 3rem;
     }
+
     .letter-content {
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: 1.3rem;
+        line-height: 2;
     }
+
     .signature {
-        font-size: 0.95rem;
-        margin-top: 1rem;
+        font-size: 1.4rem;
+        margin-top: 2rem;
+    }
+
+    .toast {
+        font-size: 1.3rem;
+        padding: 1.2rem 2.5rem;
+        top: 3rem;
     }
 }
