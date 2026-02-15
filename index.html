@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Dazel ♥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <div id="question1" class="question-section">
+            <h1 class="question">What day did we stop being just friends?</h1>
+            <div class="answer-container">
+                <input type="date" class="date-input" id="dateInput">
+            </div>
+        </div>
+
+        <div id="question2" class="question-section" style="display: none;">
+            <h1 class="question">What kept us from being together in the first year?</h1>
+            <div class="answer-container">
+                <div class="options">
+                    <button class="option-btn" data-answer="Misunderstanding">Misunderstanding</button>
+                    <button class="option-btn" data-answer="Taken">Taken</button>
+                    <button class="option-btn" data-answer="Not interested">Not interested</button>
+                    <button class="option-btn" data-answer="Gay">Gay</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="question3" class="question-section" style="display: none;">
+            <h1 class="question">Who am I?</h1>
+            <div class="answer-container">
+                <input type="text" class="text-input" id="nameInput" placeholder="Type your answer...">
+                <br>
+                <button class="submit-btn" id="submitName">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="envelope-container" id="envelopeContainer">
+        <div class="envelope">
+            <div class="envelope-back"></div>
+            <div class="envelope-flap"></div>
+            <div class="letter">
+                <div class="letter-content">
+                    To say that being with you is a dream come true would assume that I was delusional enough to even begin to ponder that I would be with you, Dazel. The glow you brought with you ever since the first time I met you has always stuck with me, and how could it not? Even now you glow so brilliantly by my side, still the same girl I fell for on our first year of college. My feelings for you only grow as time passes. I never knew I could feel this strongly, this powerfully, about anyone.
+                    <br><br>
+                    You are the most amazing person I've ever met, Baby. I love you so, so much.
+                    <div class="signature">Yours forever,<br>~ Bao Bao</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <div class="correct-flash" id="correctFlash"></div>
+    <img class="flash-image" id="flashImage" src="" alt="">
+
+    <script src="script.js"></script>
+</body>
+</html>

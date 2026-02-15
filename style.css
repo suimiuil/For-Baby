@@ -1,0 +1,481 @@
+:root {
+    --rose-bloom: #ffc2d1;
+    --deep-rose: #ff6b9d;
+    --velvet-pink: #ffb3d9;
+    --cream: #fff5f7;
+    --charcoal: #4a4a4a;
+    --success-glow: #90ee90;
+    --error-flash: #ff6b6b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe5f1 50%, #ffd6e8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 192, 203, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 105, 180, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    animation: floatBg 20s ease-in-out infinite;
+}
+
+@keyframes floatBg {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+}
+
+.container {
+    text-align: center;
+    padding: 3rem;
+    position: relative;
+    z-index: 10;
+    max-width: 600px;
+    width: 90%;
+}
+
+.question {
+    font-family: 'Lexend', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    margin-bottom: 3rem;
+    line-height: 1.4;
+    opacity: 0;
+    animation: fadeInDown 1.2s ease-out forwards;
+    text-shadow: 0 2px 20px rgba(255, 182, 193, 0.3);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.answer-container {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out 2s forwards;
+    pointer-events: none;
+}
+
+.answer-container.active {
+    pointer-events: auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.date-input:disabled,
+.text-input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.option-btn:disabled,
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.date-input {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    border: 3px solid var(--rose-bloom);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--charcoal);
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--deep-rose);
+    transform: scale(1.05);
+    box-shadow: 0 12px 48px rgba(255, 107, 157, 0.25);
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.option-btn {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 1.3rem;
+    padding: 1.2rem 1.5rem;
+    border: 3px solid var(--rose-bloom);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
+    font-weight: 500;
+}
+
+.option-btn:hover {
+    transform: translateY(-5px);
+    border-color: var(--deep-rose);
+    box-shadow: 0 12px 48px rgba(255, 107, 157, 0.3);
+    background: rgba(255, 255, 255, 1);
+}
+
+.text-input {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem 1.5rem;
+    border: 3px solid var(--rose-bloom);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--charcoal);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(255, 107, 157, 0.15);
+}
+
+.text-input:focus {
+    outline: none;
+    border-color: var(--deep-rose);
+    transform: scale(1.05);
+    box-shadow: 0 12px 48px rgba(255, 107, 157, 0.25);
+}
+
+.submit-btn {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 1.3rem;
+    padding: 1rem 3rem;
+    margin-top: 1.5rem;
+    border: 3px solid var(--deep-rose);
+    border-radius: 15px;
+    background: linear-gradient(135deg, var(--deep-rose), var(--velvet-pink));
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(255, 107, 157, 0.3);
+    font-weight: 600;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 48px rgba(255, 107, 157, 0.5);
+}
+
+.toast {
+    position: fixed;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    padding: 1.2rem 2.5rem;
+    border-radius: 15px;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.error {
+    background: var(--error-flash);
+    color: white;
+}
+
+.toast.success {
+    background: var(--success-glow);
+    color: var(--charcoal);
+}
+
+.correct-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--success-glow);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.envelope-container {
+    position: fixed;
+    bottom: -400px;
+    left: 50%;
+    transform: translateX(-50%) rotate(30deg);
+    cursor: pointer;
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 9999;
+}
+
+.envelope-container.slide-up {
+    bottom: -100px;
+}
+
+.envelope-container.slide-down {
+    bottom: -400px;
+    transform: translateX(-50%) rotate(30deg);
+}
+
+.envelope-container.center {
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%) rotate(0deg);
+}
+
+.envelope {
+    width: 320px;
+    height: 200px;
+    position: relative;
+}
+
+.envelope-back {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ffc2d1, #ffb3d9);
+    border-radius: 5px;
+    box-shadow: 0 10px 40px rgba(255, 107, 157, 0.4);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, #ffb3d9, #ffc2d1);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.8s ease;
+    z-index: 2;
+    box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+}
+
+.envelope-container.opening .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.letter {
+    position: fixed;
+    width: 95%;
+    max-width: 1200px;
+    min-width: 900px;
+    max-height: 90vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fffef9;
+    border-radius: 5px;
+    padding: 3rem 3rem;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10001;
+    overflow-y: auto;
+    pointer-events: none;
+    border: 2px solid rgba(255, 194, 209, 0.3);
+    animation: fadeIn 1.2s ease-in forwards
+}
+
+.envelope-container.opening .letter {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.letter-content {
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #2a2a2a;
+    text-align: left;
+}
+
+.signature {
+    margin-top: 2rem;
+    text-align: right;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2a2a2a;
+}
+
+.flash-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    max-height: 80%;
+    opacity: 0;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.flash-image.show {
+    opacity: 1;
+}
+
+.fade-out {
+    animation: fadeOut 0.8s ease forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+/* Hearts floating animation */
+.heart {
+    position: fixed;
+    font-size: 1.5rem;
+    color: var(--rose-bloom);
+    opacity: 0;
+    pointer-events: none;
+    animation: floatHeart 4s ease-in-out infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .question {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .option-btn {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+    .envelope {
+        width: 260px;
+        height: 160px;
+    }
+    .letter {
+        width: 95%;
+        max-width: none;
+        padding: 2.5rem 2rem;
+        max-height: 90vh;
+    }
+    .letter-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+    .signature {
+        font-size: 1.2rem;
+    }
+    .date-input,
+    .text-input {
+        font-size: 1.2rem;
+        padding: 0.8rem 1rem;
+    }
+    .submit-btn {
+        font-size: 1.1rem;
+        padding: 0.8rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .question {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    .options {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .option-btn {
+        font-size: 1rem;
+    }
+    .envelope {
+        width: 220px;
+        height: 135px;
+    }
+    .letter {
+        padding: 2rem 1.5rem;
+    }
+    .letter-content {
+        font-size: 1rem;
+    }
+    .signature {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+}
