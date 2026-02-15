@@ -125,6 +125,7 @@ envelopeContainer.addEventListener('click', function() {
     if (finalScreen) return;
     
     if (!envelopeClicked) {
+        // First click: slide down then center the envelope
         envelopeClicked = true;
         this.classList.remove('slide-up');
         this.classList.add('slide-down');
@@ -132,12 +133,11 @@ envelopeContainer.addEventListener('click', function() {
         setTimeout(() => {
             this.classList.remove('slide-down');
             this.classList.add('center');
-            
-            setTimeout(() => {
-                this.classList.add('opening');
-                finalScreen = true;
-            }, 2000);
         }, 500);
+    } else {
+        // Second click: open the envelope and show letter
+        this.classList.add('opening');
+        finalScreen = true;
     }
 });
 
