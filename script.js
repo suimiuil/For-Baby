@@ -11,7 +11,9 @@ const flashImage = document.getElementById('flashImage');
 
 // Question 1: Date selector
 dateInput.addEventListener('change', function() {
-    if (isLocked) return;
+    // Don't process if locked or if no value has been selected yet
+    if (isLocked || !this.value) return;
+    
     isLocked = true;
     this.disabled = true;
 
