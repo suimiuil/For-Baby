@@ -10,30 +10,42 @@ const correctFlash = document.getElementById('correctFlash');
 const flashImage = document.getElementById('flashImage');
 
 // Question 1: Date selector
+let dateSelectionTimeout = null;
+
 dateInput.addEventListener('change', function() {
+    // Clear any existing timeout
+    if (dateSelectionTimeout) {
+        clearTimeout(dateSelectionTimeout);
+    }
+    
     // Don't process if locked or if no value has been selected yet
     if (isLocked || !this.value) return;
     
-    isLocked = true;
-    this.disabled = true;
+    // Add a small delay to ensure the picker has fully closed on iPhone
+    dateSelectionTimeout = setTimeout(() => {
+        if (isLocked || !dateInput.value) return;
+        
+        isLocked = true;
+        dateInput.disabled = true;
 
-    const selectedDate = new Date(this.value);
-    const correctDate = new Date('2024-06-15');
-    
-    if (selectedDate.getTime() === correctDate.getTime()) {
-        showCorrectFlash();
-        setTimeout(() => {
-            moveToQuestion(2);
-            isLocked = false;
-        }, 1000);
-    } else {
-        showToast('You don\'t love me :(', 'error');
-        setTimeout(() => {
-            this.value = '';
-            this.disabled = false;
-            isLocked = false;
-        }, 2000);
-    }
+        const selectedDate = new Date(dateInput.value);
+        const correctDate = new Date('2024-06-15');
+        
+        if (selectedDate.getTime() === correctDate.getTime()) {
+            showCorrectFlash();
+            setTimeout(() => {
+                moveToQuestion(2);
+                isLocked = false;
+            }, 1000);
+        } else {
+            showToast('You don\'t love me :(', 'error');
+            setTimeout(() => {
+                dateInput.value = '';
+                dateInput.disabled = false;
+                isLocked = false;
+            }, 2000);
+        }
+    }, 300); // 300ms delay to ensure picker is closed
 });
 
 // Question 2: Multiple choice
