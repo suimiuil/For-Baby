@@ -431,15 +431,16 @@ body::before {
         width: 95%;
         max-width: none;
         min-width: auto;
-        padding: 2.5rem 2rem;
+        padding: 2rem 1.5rem;
         max-height: 90vh;
     }
     .letter-content {
-        font-size: 1.1rem;
-        line-height: 1.8;
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
     .signature {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin-top: 1.5rem;
     }
     .date-input,
     .text-input {
@@ -475,13 +476,15 @@ body::before {
         height: 135px;
     }
     .letter {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1rem;
+        max-height: 85vh;
     }
     .letter-content {
-        font-size: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
     .signature {
-        font-size: 1.1rem;
-        margin-top: 1.5rem;
+        font-size: 0.9rem;
+        margin-top: 1rem;
     }
 }
